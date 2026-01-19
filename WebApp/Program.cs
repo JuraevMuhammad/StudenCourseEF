@@ -15,6 +15,7 @@ builder.Services.AddScoped<ApplicationDbContext>();
 builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<ITeacherService, TeacherService>();
 builder.Services.AddScoped<IGroupService, GroupService>();
+builder.Services.AddScoped<IStudentService, StudentService>();
                          
 var app = builder.Build();
 

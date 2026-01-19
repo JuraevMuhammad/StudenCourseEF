@@ -42,6 +42,18 @@ public class StudentController(IStudentService service) : ControllerBase
         var res = service.DeleteStudent(id);
         return StatusCode(res.StatusCode, res);
     }
-    
-    [HttpGet("admin")]
+
+    [HttpGet("admin/get-deleted-students")]
+    public IActionResult AdminGetStudents()
+    {
+        var res = service.GetStudentsDeleted();
+        return StatusCode(res.StatusCode, res);
+    }
+
+    [HttpPut("{id}/restore")]
+    public IActionResult RestoreStudent(int id)
+    {
+        var res = service.RestoreStudent(id);
+        return StatusCode(res.StatusCode, res);
+    }
 }
