@@ -130,12 +130,19 @@ public class GroupService(ApplicationDbContext context) : IGroupService
 
     public Response<string> DeleteGroup(int groupId)
     {
-        var res = context.Groups.FirstOrDefault(x => x.Id == groupId && x.IsDeleted == false);
-        if (res == null)
-            return new Response<string>(HttpStatusCode.NotFound, "not found");
-        res.IsDeleted = true;
-        var result = context.SaveChanges();
-        return new Response<string>(HttpStatusCode.OK, "Group Deleted");
+        try
+        {
+            var res = context.Groups.FirstOrDefault(x => x.Id == groupId && x.IsDeleted == false);
+            if (res == null)
+                return new Response<string>(HttpStatusCode.NotFound, "not found");
+            res.IsDeleted = true;
+            var result = context.SaveChanges();
+            return new Response<string>(HttpStatusCode.OK, "Group Deleted");
+        }
+        catch
+        {
+            return new Response<string>(HttpStatusCode.InternalServerError, "Error");
+        }
     }
 
     #endregion

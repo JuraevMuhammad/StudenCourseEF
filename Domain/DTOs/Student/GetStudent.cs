@@ -1,15 +1,15 @@
-﻿using Domain.DTOs.StudentGroups;
+﻿using Domain.DTOs.Group;
 
 namespace Domain.DTOs.Student;
 
 public class GetStudent
 {
-    public int Id { get; set; }
-    public required string FirstName { get; set; } = string.Empty;
-    public string LastName { get; set; } = string.Empty;
-    public DateTime BirthDate { get; set; }
-    public string Email { get; set; } = string.Empty;
-    public string Phone { get; set; } = string.Empty;
+    public int Id;
+    public required string FirstName = string.Empty;
+    public string LastName = string.Empty;
+    public DateTime BirthDate;
+    public string Email = string.Empty;
+    public string Phone = string.Empty;
     
-    public List<GetStudentGroups>? StudentGroups { get; set; }
+    public List<GetGroup>? StudentGroups { get; set; }
 }
