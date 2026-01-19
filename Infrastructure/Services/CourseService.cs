@@ -56,10 +56,10 @@ public class CourseService(ApplicationDbContext context) : ICourseService
                 Price = x.Price,
                 CreatedAt = x.CreatedAt,
                 TeacherId = x.TeacherId,
-                Teacher = new GetTeacher
+                Teacher = new GetTeacher()
                 {
                     Id = x.Teacher!.Id,
-                    FullName = x.Teacher.FullName,
+                    FirstName = x.Teacher.FirstName,
                     LastName = x.Teacher.LastName,
                     Email = x.Teacher.Email,
                     Phone = x.Teacher.Phone,

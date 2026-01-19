@@ -5,7 +5,7 @@ namespace Domain.DTOs.Teacher;
 public class GetTeacher
 {
     public int Id { get; set; }
-    public required string FullName { get; set; } = string.Empty;
+    public required string FirstName { get; set; } = string.Empty;
     public string? LastName { get; set; }
     public required string Email { get; set; }
     public required string Phone { get; set; }

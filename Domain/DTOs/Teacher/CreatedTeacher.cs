@@ -5,7 +5,7 @@ namespace Domain.DTOs.Teacher;
 public class CreatedTeacher
 {
     [Required]
-    public required string FullName { get; set; } = string.Empty;
+    public required string FirstName { get; set; } = string.Empty;
     public string? LastName { get; set; }
     [Required]
     public required string Email { get; set; }

@@ -1,20 +1,16 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+﻿using Domain.DTOs.Course;
 
-namespace Domain.Entities;
+namespace Domain.DTOs.Teacher;
 
-public class Teacher : BaseEntities
+public class GetTeacherWithCourses
 {
-    [Required]
+    public int Id { get; set; }
     public required string FirstName { get; set; } = string.Empty;
     public string? LastName { get; set; }
-    [Required]
     public required string Email { get; set; }
-    [Required]
-    [Phone]
     public required string Phone { get; set; }
     public string Specialization { get; set; } = string.Empty;
     public int ExperienceYears { get; set; }
     
-    public List<Course>? Courses { get; set; }
+    public List<GetCourse>? Courses { get; set; }
 }

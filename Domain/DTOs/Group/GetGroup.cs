@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Domain.DTOs.Course;
+using Domain.DTOs.Student;
 using Domain.DTOs.StudentGroups;
 
 namespace Domain.DTOs.Group;
@@ -13,8 +14,9 @@ public class GetGroup
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public bool IsStarted { get; set; }
+    public bool isDeleted { get; set; }
     
     public GetCourse? Course { get; set; }
-    public List<GetStudentGroups>? StudentGroups { get; set; }
+    public List<GetStudent>? StudentGroups { get; set; }
 }
 
