@@ -14,6 +14,8 @@ public class StudentService(ApplicationDbContext context) : IStudentService
     public Response<List<GetStudent>> GetStudents()
     {
         var res = context.Students.Where(x => x.IsDeleted == false).ToList();
+        if(res.Count == 0)
+            return new Response<List<GetStudent>>(HttpStatusCode.NotFound, "Student not found");
         
         var get = res.Select(x => new GetStudent()
             {
@@ -116,6 +118,9 @@ public class StudentService(ApplicationDbContext context) : IStudentService
     {
         var res = context.Students
             .Where(x => x.IsDeleted != false).ToList();
+        if(res.Count == 0)
+            return new Response<List<GetStudent>>(HttpStatusCode.NotFound, "Student not found");
+        
         var get = res.Select(x => new GetStudent()
             {
                 Id = x.Id,

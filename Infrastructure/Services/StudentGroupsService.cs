@@ -89,4 +89,14 @@ public class StudentGroupsService(ApplicationDbContext context) : IStudentGroups
     }
 
     #endregion
+
+    #region StudentCount
+
+    public Response<int> StudentCount()
+    {
+        var res = context.StudentGroups.Where(x => !x.IsDeleted).Select(x => x.StudentId).Distinct().Count();
+        return new Response<int>(res);
+    }
+
+    #endregion
 }
