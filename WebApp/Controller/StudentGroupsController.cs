@@ -27,4 +27,11 @@ public class StudentGroupsController(IStudentGroupsService service) : Controller
         var res = service.GetAllStudents(id);
         return StatusCode(res.StatusCode, res);
     }
+
+    [HttpGet("count-student-is-active")]
+    public IActionResult GetStudentsIsActive()
+    {
+        var res = service.StudentCount();
+        return StatusCode(res.StatusCode, res);
+    }
 }
